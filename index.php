@@ -32,6 +32,7 @@ class Server {
     }
 
     public function workerStart ($server, $work) {
+        // 我只是不想输出那个模板html
         ob_start();
         require "/usr/local/share/gini/lib/cgi.php";
         ob_end_clean();

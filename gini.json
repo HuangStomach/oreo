@@ -2,5 +2,8 @@
     "name": "Oreo",
     "description": "App description...",
     "version": "0.1.0",
-    "dependencies": {}
+    "dependencies": {
+        "gini": "*",
+        "rest": "*"
+    }
 }
