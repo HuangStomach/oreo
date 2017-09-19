@@ -1,0 +1,25 @@
+# 文件系统
+.DS*
+._*
+.swp
+.swo
+*.swo
+*.swp
+.#*
+.*~
+*~
+Thumbnail.db
+.App*
+.vscode
+*.log
+
+# gini框架
+web/
+cache/
+vendor/
+modules/
+composer.lock
+composer.json
+raw/config/@development/
+raw/config/@testing/
+data/log/*
