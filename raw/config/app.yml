@@ -1,8 +1,9 @@
 ---
 rpc:
   gateway:
-    url: http://gateway.swu.labmai.com/api,
-    clientId: swu
-    clientSecret: d96738e403104693bbe97e0c58fa866f
-    # path: 'api'
+    url: <url>,
+    clientId: <id>
+    clientSecret: <secret>
+  17kong-user:
+    url: <url>
 ...
