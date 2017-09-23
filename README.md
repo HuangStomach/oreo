@@ -1,6 +1,21 @@
 # Oreo
 
 > 这里是描述
+
+### Docker
+
+``` bash
+docker run \
+    --name swoole \
+    -d \
+    -p 4000:4000/tcp \
+    -p 4001:4001/tcp \
+    -p 4002:4002/tcp \
+    -p 4003:4003/tcp \
+    -v /data/gini-modules:/data/gini-modules:rw \
+    --restart=always \
+    gini-swoole:latest
+```
  
 ### 功能
 
@@ -22,11 +37,24 @@
         password: '密码'
     }
     ```
+
 * Response:
 
     ```
-    ref: 学号
+    ref: '学号'
     ```
+
+* Error
+
+    ```
+    {
+        error: {
+            code: '错误码',
+            message: '错误信息'
+        }
+    }
+    ```
+
 * Description: 服务于用户登录
 
 #### 人员
@@ -69,6 +97,17 @@
             name: '机构名称'
         },
         @source: 'database'
+    }
+    ```
+
+* Error
+
+    ```
+    {
+        error: {
+            code: '错误码',
+            message: '错误信息'
+        }
     }
     ```
 

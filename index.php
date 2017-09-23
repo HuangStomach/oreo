@@ -2,9 +2,10 @@
 class Server {
     protected $server;
 
-    public function __construct () {
-        $this->server = new swoole_http_server('0.0.0.0', 3015);
+    public function __construct ($host, $port) {
+        $this->server = new swoole_http_server($host, $port);
         $this->server->set([
+            'daemonize' => 0,
             'worker_num' => 8, // worker process num
             'backlog' => 128, // listen backlog
             'max_request' => 50,
@@ -43,5 +44,11 @@ class Server {
     }
 }
 
-$server = new Server();
+$params = getopt('', [
+    'host:',
+    'port:'
+]);
+$host = $params['host'] ? : '0.0.0.0';
+$port = $params['port'] ? : '3000';
+$server = new Server($host, $port);
 $server->run();
