@@ -14,7 +14,7 @@ docker run \
     -p 4003:4003/tcp \
     -v /data/gini-modules:/data/gini-modules:rw \
     --restart=always \
-    gini-swoole:latest
+    huangstomach/gini-swoole:latest
 ```
  
 ### 功能
@@ -61,12 +61,12 @@ docker run \
 
 * Type: `Restful`
 * Origin: `user`
-* Method: `get`
+* Method: `get/{ref: 学号}`
 * Requset:
 
     ``` javascript
     {
-        ref: '学号'
+        // 目前没有支持的参数
     }
     ```
 * Response:

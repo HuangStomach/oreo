@@ -40,7 +40,7 @@ class Rest extends \Gini\Controller\REST {
 
     protected function error ($code = 500, $message = '') {
         $code = array_key_exists($code, $this->errors) ? $code : 500;
-        $message = $message || $this->errors[$code];
+        $message = $message or $this->errors[$code];
 
         return [
             'error' => [

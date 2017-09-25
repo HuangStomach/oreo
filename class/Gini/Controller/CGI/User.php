@@ -26,7 +26,7 @@ class User extends Base\Rest
                 }
 
                 // 获取yiqikong-user信息
-                $config = \Gini\Config::get('app.rpc')['yiqikong-user'];
+                $config = \Gini\Config::get('app.rpc')['17kong-user'];
                 $client = \Gini\IoC::construct('\Gini\RPC', $config['url']);
                 $result = $client->YiQiKong->User->GetInfo($user['email']);
                 if ($result) {
@@ -45,8 +45,17 @@ class User extends Base\Rest
                     'phone' => $user['phone'],
                 ]);
                 if (!$result) {
-                    $response = $this->error(500, '注册用户失败');
-                    goto output;
+                    // 注册不成功尝试添加
+                    $result = $client->YiQiKong->User->Add([
+                        'name' => $user['name'],
+                        'institution' => $user['school']['name'],
+                        'email' => $user['email'],
+                        'phone' => $user['phone'],
+                    ]);
+                    if (!$result) {
+                        $response = $this->error(500, '注册用户失败');
+                        goto output;
+                    }
                 }
 
                 // 成功后去取yiqikong-user信息
